@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  BFHAMainVC.h
 //  BFHealthAction
 //
 //  Created by Readboy_BFAlex on 2017/9/12.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface BFHAMainVC : UIViewController
 
 @end
-
