@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A84CEEBC1F7B7FB5000115C6 /* BFCusStepCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A84CEEBB1F7B7FB5000115C6 /* BFCusStepCell.m */; };
+		A84CEEBE1F7B7FD1000115C6 /* BFCusStepCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A84CEEBD1F7B7FD1000115C6 /* BFCusStepCell.xib */; };
+		A85698F01F7B9FA100F6782C /* BFCusStepCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A85698EF1F7B9FA100F6782C /* BFCusStepCellModel.m */; };
+		A85698F31F7BA2ED00F6782C /* BFCusStepView.m in Sources */ = {isa = PBXBuildFile; fileRef = A85698F21F7BA2ED00F6782C /* BFCusStepView.m */; };
+		A85698F51F7BA2FD00F6782C /* BFCusStepView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A85698F41F7BA2FD00F6782C /* BFCusStepView.xib */; };
 		A895560C1F67671000635A86 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A895560B1F67671000635A86 /* main.m */; };
 		A895560F1F67671000635A86 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A895560E1F67671000635A86 /* AppDelegate.m */; };
 		A89556151F67671000635A86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A89556131F67671000635A86 /* Main.storyboard */; };
@@ -37,6 +42,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A84CEEBA1F7B7FB5000115C6 /* BFCusStepCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFCusStepCell.h; sourceTree = "<group>"; };
+		A84CEEBB1F7B7FB5000115C6 /* BFCusStepCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFCusStepCell.m; sourceTree = "<group>"; };
+		A84CEEBD1F7B7FD1000115C6 /* BFCusStepCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BFCusStepCell.xib; sourceTree = "<group>"; };
+		A85698EE1F7B9FA100F6782C /* BFCusStepCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BFCusStepCellModel.h; sourceTree = "<group>"; };
+		A85698EF1F7B9FA100F6782C /* BFCusStepCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BFCusStepCellModel.m; sourceTree = "<group>"; };
+		A85698F11F7BA2ED00F6782C /* BFCusStepView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BFCusStepView.h; sourceTree = "<group>"; };
+		A85698F21F7BA2ED00F6782C /* BFCusStepView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BFCusStepView.m; sourceTree = "<group>"; };
+		A85698F41F7BA2FD00F6782C /* BFCusStepView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BFCusStepView.xib; sourceTree = "<group>"; };
 		A89556071F67671000635A86 /* BFHealthAction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BFHealthAction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A895560B1F67671000635A86 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A895560D1F67671000635A86 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -85,6 +98,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A84CEEB91F7B7F6D000115C6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A84CEEBA1F7B7FB5000115C6 /* BFCusStepCell.h */,
+				A84CEEBB1F7B7FB5000115C6 /* BFCusStepCell.m */,
+				A84CEEBD1F7B7FD1000115C6 /* BFCusStepCell.xib */,
+				A85698F11F7BA2ED00F6782C /* BFCusStepView.h */,
+				A85698F21F7BA2ED00F6782C /* BFCusStepView.m */,
+				A85698F41F7BA2FD00F6782C /* BFCusStepView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A85698ED1F7B9F5D00F6782C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A85698EE1F7B9FA100F6782C /* BFCusStepCellModel.h */,
+				A85698EF1F7B9FA100F6782C /* BFCusStepCellModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A89555FE1F67670F00635A86 = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +196,8 @@
 		A89556431F67677700635A86 /* Walk */ = {
 			isa = PBXGroup;
 			children = (
+				A85698ED1F7B9F5D00F6782C /* Model */,
+				A84CEEB91F7B7F6D000115C6 /* View */,
 				A89556441F676C8B00635A86 /* BFHealthManager.h */,
 				A89556451F676C8B00635A86 /* BFHealthManager.m */,
 			);
@@ -281,7 +318,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A85698F51F7BA2FD00F6782C /* BFCusStepView.xib in Resources */,
 				A895561A1F67671000635A86 /* LaunchScreen.storyboard in Resources */,
+				A84CEEBE1F7B7FD1000115C6 /* BFCusStepCell.xib in Resources */,
 				A89556171F67671000635A86 /* Assets.xcassets in Resources */,
 				A89556151F67671000635A86 /* Main.storyboard in Resources */,
 			);
@@ -309,9 +348,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A89556491F67AC1600635A86 /* BFHAMainVC.m in Sources */,
+				A85698F01F7B9FA100F6782C /* BFCusStepCellModel.m in Sources */,
 				A89556461F676C8B00635A86 /* BFHealthManager.m in Sources */,
 				A895560F1F67671000635A86 /* AppDelegate.m in Sources */,
 				A895560C1F67671000635A86 /* main.m in Sources */,
+				A84CEEBC1F7B7FB5000115C6 /* BFCusStepCell.m in Sources */,
+				A85698F31F7BA2ED00F6782C /* BFCusStepView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

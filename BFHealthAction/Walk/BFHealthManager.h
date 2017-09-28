@@ -13,12 +13,16 @@
 @optional
 - (void)didAccessSteps:(double)stepCount;
 - (void)accessDataFail:(NSError *)error;
+// 本地保存数据结果
+- (void)localSaveDataResult:(BOOL)success;
 
 @end
 
 @interface BFHealthManager : NSObject
 
 @property (nonatomic, strong) id<BFHealthManagerDelegate> delegate;
+// predefinedStepDataSource保存对象是BFCusStepCellModel
+@property (nonatomic, strong) NSMutableArray *predefinedStepDataSource;
 
 + (instancetype)shareHealthManager;
 /**
@@ -33,5 +37,10 @@
  添加步数
  */
 - (void)addStepWithStepNum:(double)stepNum;
+
+/**
+ 本地保存数据
+ */
+- (void)localSaveData;
 
 @end

@@ -9,6 +9,10 @@
 #import "BFHealthManager.h"
 #import <HealthKit/HealthKit.h>
 #import <UIKit/UIKit.h>
+#import "BFCusStepCellModel.h"
+
+#define kPredefinedStepKey @"PreSDS"
+#define kArchiverFileName    @"BFHealthArchiverFile.archiver"
 
 @interface BFHealthManager ()
 @property (nonatomic, strong) HKHealthStore *healthStore;
@@ -16,6 +20,19 @@
 @end
 
 @implementation BFHealthManager
+
+#pragma mark - Property
+
+- (NSMutableArray *)predefinedStepDataSource {
+    if (!_predefinedStepDataSource) {
+        [self localLoadData];
+        if (!_predefinedStepDataSource) {
+            _predefinedStepDataSource = [[NSMutableArray alloc] init];
+        }
+    }
+    
+    return _predefinedStepDataSource;
+}
 
 #pragma mark - Public
 
@@ -87,12 +104,45 @@
     }];
 }
 
+- (void)localSaveData {
+    if (!self.predefinedStepDataSource) { return; }
+//    NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)
+    NSString *path = [self localSaveDataPath];
+    
+    NSMutableData *data = [NSMutableData data];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    [archiver encodeObject:self.predefinedStepDataSource forKey:kPredefinedStepKey];
+    [archiver finishEncoding];
+    BOOL result = [data writeToFile:path atomically:YES];
+    if ([self.delegate respondsToSelector:@selector(localSaveDataResult:)]) {
+        [self.delegate localSaveDataResult:result];
+    }
+}
+
+/**
+ 从本地解档数据
+ */
+- (void)localLoadData {
+    // 归档
+    NSString *path = [self localSaveDataPath];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+    self.predefinedStepDataSource = [unarchiver decodeObjectForKey:kPredefinedStepKey];
+    [unarchiver finishDecoding];
+}
+
+- (NSString *)localSaveDataPath {
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    path = [path stringByAppendingPathComponent:kArchiverFileName];
+    
+    return path;
+}
+
 #pragma mark - Private
 
 /**
  设置写入权限
  */
-#pragma mark
 - (NSSet *)dataTypesToWrite {
     HKQuantityType *stepType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
     return [NSSet setWithObjects:stepType, nil];
@@ -100,7 +150,6 @@
 /**
  设置读取权限
  */
-#pragma mark
 - (NSSet *)dataTypesToRead {
     HKQuantityType *stepType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
     return [NSSet setWithObjects:stepType, nil];

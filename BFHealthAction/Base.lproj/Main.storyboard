@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -53,7 +53,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CYb-H7-QGM" userLabel="View_Write">
-                                <rect key="frame" x="0.0" y="112" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="112" width="375" height="180"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="添加步数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ssh-sy-f2s">
                                         <rect key="frame" x="8" y="8" width="359" height="30"/>
@@ -67,7 +67,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j8q-BL-t59">
                                         <rect key="frame" x="8" y="46" width="359" height="36"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="增加目标步数(0~20000)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="MvF-KN-KAV">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="建议增加目标步数范围(0~20000)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="MvF-KN-KAV">
                                                 <rect key="frame" x="8" y="0.0" width="343" height="36"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -94,37 +94,62 @@
                                             <action selector="actionAddStepCountBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FS5-uM-tju"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oU3-XD-iZH">
+                                        <rect key="frame" x="127.5" y="150" width="120" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="bEF-q2-h2j"/>
+                                        </constraints>
+                                        <state key="normal" title="自定义目标步数">
+                                            <color key="titleColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actionCustomTargetStepCount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gt5-bv-gVl"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="j8q-BL-t59" secondAttribute="trailing" constant="8" id="2HL-cJ-n0O"/>
-                                    <constraint firstAttribute="height" constant="150" id="6Vb-aS-EYx"/>
+                                    <constraint firstAttribute="height" constant="180" id="6Vb-aS-EYx"/>
                                     <constraint firstItem="Ssh-sy-f2s" firstAttribute="leading" secondItem="CYb-H7-QGM" secondAttribute="leading" constant="8" id="BEY-Jr-jji"/>
+                                    <constraint firstAttribute="bottom" secondItem="oU3-XD-iZH" secondAttribute="bottom" id="BtI-fl-P0P"/>
                                     <constraint firstAttribute="trailing" secondItem="uwF-2V-CTf" secondAttribute="trailing" constant="8" id="CaU-Hn-rBf"/>
+                                    <constraint firstItem="oU3-XD-iZH" firstAttribute="top" secondItem="uwF-2V-CTf" secondAttribute="bottom" constant="8" id="JU0-Wh-Gbv"/>
                                     <constraint firstItem="j8q-BL-t59" firstAttribute="top" secondItem="Ssh-sy-f2s" secondAttribute="bottom" constant="8" id="Lko-Oa-kZe"/>
                                     <constraint firstItem="uwF-2V-CTf" firstAttribute="leading" secondItem="CYb-H7-QGM" secondAttribute="leading" constant="8" id="OOA-3O-8DF"/>
                                     <constraint firstItem="uwF-2V-CTf" firstAttribute="top" secondItem="j8q-BL-t59" secondAttribute="bottom" constant="16" id="RZx-gt-g4g"/>
-                                    <constraint firstAttribute="bottom" secondItem="uwF-2V-CTf" secondAttribute="bottom" constant="8" id="WGW-3S-Oez"/>
+                                    <constraint firstAttribute="bottom" secondItem="uwF-2V-CTf" secondAttribute="bottom" constant="38" id="WGW-3S-Oez"/>
                                     <constraint firstItem="j8q-BL-t59" firstAttribute="leading" secondItem="CYb-H7-QGM" secondAttribute="leading" constant="8" id="Wit-W8-L5P"/>
                                     <constraint firstAttribute="trailing" secondItem="Ssh-sy-f2s" secondAttribute="trailing" constant="8" id="ZpV-F7-geS"/>
                                     <constraint firstItem="Ssh-sy-f2s" firstAttribute="top" secondItem="CYb-H7-QGM" secondAttribute="top" constant="8" id="lOr-2C-8co"/>
+                                    <constraint firstItem="oU3-XD-iZH" firstAttribute="centerX" secondItem="CYb-H7-QGM" secondAttribute="centerX" id="prZ-d6-3vI"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OdC-Fc-V72">
+                                <rect key="frame" x="0.0" y="300" width="375" height="367"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CYb-H7-QGM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="CgT-W4-inL"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OdC-Fc-V72" secondAttribute="bottom" id="E6y-K8-VsE"/>
                             <constraint firstItem="CYb-H7-QGM" firstAttribute="top" secondItem="xnr-dC-RMh" secondAttribute="bottom" constant="8" id="GZQ-wQ-K1H"/>
                             <constraint firstItem="xnr-dC-RMh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Rhd-6z-uSk"/>
+                            <constraint firstItem="OdC-Fc-V72" firstAttribute="top" secondItem="CYb-H7-QGM" secondAttribute="bottom" constant="8" id="Tfg-b1-z2A"/>
                             <constraint firstItem="xnr-dC-RMh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gxU-sZ-gaO"/>
+                            <constraint firstAttribute="trailing" secondItem="OdC-Fc-V72" secondAttribute="trailing" id="miY-Ym-InP"/>
                             <constraint firstAttribute="trailing" secondItem="CYb-H7-QGM" secondAttribute="trailing" id="nV5-5b-a8l"/>
                             <constraint firstAttribute="trailing" secondItem="xnr-dC-RMh" secondAttribute="trailing" id="rJp-VP-4gE"/>
+                            <constraint firstItem="OdC-Fc-V72" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uj8-jM-2jN"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addStepBtn" destination="uwF-2V-CTf" id="8iS-Dm-PXv"/>
                         <outlet property="addStepTF" destination="MvF-KN-KAV" id="sg2-Or-9IK"/>
                         <outlet property="addStepTFContainer" destination="j8q-BL-t59" id="fvU-6K-Tth"/>
+                        <outlet property="cusStepBtn" destination="oU3-XD-iZH" id="piG-Rg-eUi"/>
+                        <outlet property="cusStepTableView" destination="OdC-Fc-V72" id="LvJ-PF-KeX"/>
                         <outlet property="showStepLabel" destination="VjG-uQ-rs6" id="UzS-AA-tNK"/>
                     </connections>
                 </viewController>
